@@ -17,8 +17,23 @@ public class AppMain {
 			View view = new View();
 			
 			try {
-				List<RegionDTO> ar = regionDAO.getList();
-				view.regionview(ar);
+//				List<RegionDTO> ar = regionDAO.getList();
+//				view.regionview(ar);
+				
+				RegionDTO regionDTO = new RegionDTO();
+				regionDTO.setRegion_id(1);
+				regionDTO = regionDAO.getDetail(regionDTO);
+				
+				if(regionDTO!=null) {
+					System.out.println(regionDTO.getRegion_id());
+					
+				}else {
+					System.out.println("없는 ID입니다");
+				}
+				
+				
+				
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
