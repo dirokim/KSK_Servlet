@@ -7,9 +7,34 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import com.summer.app.util.DBConnector;
 
 public class RegionDAO {
+	
+	
+	public RegionDTO getDetail(RegionDTO regionDTO) throws Exception{
+		Connection con = DBConnector.getConnector();
+		String sql = "SELECT * FROM REGIONS WHERE REGION_ID=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, regionDTO.getRegion_id());   //sql 인젝션 대비 
+		ResultSet rs = st.executeQuery();
+		RegionDTO resultDTO=null;
+		
+		if(rs.next()) {
+			resultDTO = new RegionDTO();
+			resultDTO.setRegion_id(rs.getInt("REGION_ID"));
+			resultDTO.setRegion_name(rs.getString("REGION_NAME"));
+		}
+		
+		return resultDTO;
+		}
+			
+	
+	
+	
+	
 
 	public List<RegionDTO> getList() throws Exception {
 			Connection con = DBConnector.getConnector();

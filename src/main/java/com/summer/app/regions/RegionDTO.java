@@ -1,6 +1,6 @@
 package com.summer.app.regions;
 
-public class RegionDTO {
+public class  RegionDTO {
 	
 	
 	// 1. 모든 멤버 변수의 접근 지정자는 private;
@@ -13,6 +13,8 @@ public class RegionDTO {
 	
 	
 	
+	
+
 	
 	public Integer getRegion_id() {
 		return region_id;

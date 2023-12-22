@@ -13,7 +13,7 @@ public class DepartmentMain {
 		View view = new View();
 		try {
 			ArrayList<DepartmentDTO>ar= dao.getList();
-			view.departmentview(ar);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

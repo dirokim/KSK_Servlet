@@ -16,9 +16,6 @@ public class View {
 		}
 		
 	}
-	public void departmentview(List<DepartmentDTO> ar) {
-		for(DepartmentDTO departmentDTO:ar) {
-			System.out.println(departmentDTO.getDepartment_name()+":"+departmentDTO.getDepartment_id()+departmentDTO.getLocation_id()+departmentDTO.getManager_id());
-		}
-	}
+	
+	
 }
