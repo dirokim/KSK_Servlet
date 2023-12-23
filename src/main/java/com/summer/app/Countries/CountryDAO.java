@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import com.summer.app.util.DBConnector;
 
-import oracle.jdbc.driver.ConnectionDiagnosable;
+
 
 public class CountryDAO {
 	
