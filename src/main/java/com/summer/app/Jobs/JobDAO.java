@@ -8,12 +8,22 @@ import java.util.ArrayList;
 import com.summer.app.util.DBConnector;
 
 public class JobDAO {
-	public void getDetail(JobDTO jobDTO) throws Exception {
+	public JobDTO getDetail(JobDTO jobDTO) throws Exception {
 		Connection con =  DBConnector.getConnector();
 		String sql ="SELECT * FROM JOBS WHERE JOBS_ID = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, jobDTO.getJob_id());
 		ResultSet rs = ps.executeQuery();
+		JobDTO resultDTO = null;
+		if(rs.next()) {
+			resultDTO.setJob_id(rs.getString("JOB_ID"));
+			resultDTO.setJob_title(rs.getString("JOB_TITLE"));
+			resultDTO.setMax_salary(rs.getInt("MAX_SALARY"));
+			resultDTO.setMin_salary(rs.getInt("MIN_SALARY"));
+			
+		}
+		DBConnector.disConnect(rs, ps, con);
+		return resultDTO;
 		
 	}
 	
