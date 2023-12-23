@@ -10,6 +10,11 @@ import com.summer.app.util.DBConnector;
 public class EmployeeDAO {
 	
 	
+	public void getDetail() throws Exception {
+		Connection con = DBConnector.getConnector();
+		String sql = "SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID=?";
+		
+	}
 	
 	
 	public ArrayList<EmployeeDTO> getList() throws Exception {
