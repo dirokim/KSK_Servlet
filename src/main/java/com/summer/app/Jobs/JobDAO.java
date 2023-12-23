@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import com.summer.app.util.DBConnector;
 
 public class JobDAO {
+	public void getDetail() throws Exception {
+		Connection con =  DBConnector.getConnector();
+		String sql ="SELECT * FROM JOBS WHERE JOBS_ID = ?";
+	}
+	
 
 	public ArrayList<JobDTO> getlist() throws Exception {
 		
