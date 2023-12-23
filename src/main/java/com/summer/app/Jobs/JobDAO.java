@@ -8,9 +8,13 @@ import java.util.ArrayList;
 import com.summer.app.util.DBConnector;
 
 public class JobDAO {
-	public void getDetail() throws Exception {
+	public void getDetail(JobDTO jobDTO) throws Exception {
 		Connection con =  DBConnector.getConnector();
 		String sql ="SELECT * FROM JOBS WHERE JOBS_ID = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, jobDTO.getJob_id());
+		ResultSet rs = ps.executeQuery();
+		
 	}
 	
 
