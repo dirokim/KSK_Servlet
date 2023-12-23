@@ -28,6 +28,7 @@ public class DepartmentDAO {
 			
 			
 		}
+		DBConnector.disConnect(rs, ps, con);
 		return resultDTO;
 	}
 	

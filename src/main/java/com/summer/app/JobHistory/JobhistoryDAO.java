@@ -9,6 +9,23 @@ import com.summer.app.util.DBConnector;
 
 public class JobhistoryDAO {
 
+	public JobhistoryDTO getDetail(JobhistoryDTO jobhistoryDTO) throws Exception {
+		Connection con =  DBConnector.getConnector();
+		String sql= "SELECT * FROM JOBHISTORY WHERE JOB_ID = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, jobhistoryDTO.getJob_id());
+		ResultSet rs = ps.executeQuery();
+		JobhistoryDTO resultDTO=null;
+		if(rs.next()) {
+			resultDTO.setJob_id(rs.getString("JOB_ID"));
+			resultDTO.setEmployee_id(rs.getInt("EMPLOYEE_ID"));
+			resultDTO.setStart_date(rs.getInt("START_DATE"));
+			resultDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
+			resultDTO.setEnd_date(rs.getInt("END_DATE"));
+		}
+		DBConnector.disConnect(rs, ps, con);
+		return resultDTO;
+	}
 	
 	public ArrayList<JobhistoryDTO> getList() throws Exception {
 		Connection con = DBConnector.getConnector();
