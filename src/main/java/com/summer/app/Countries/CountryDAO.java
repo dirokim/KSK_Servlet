@@ -7,7 +7,39 @@ import java.util.ArrayList;
 
 import com.summer.app.util.DBConnector;
 
+import oracle.jdbc.driver.ConnectionDiagnosable;
+
 public class CountryDAO {
+	
+	public CountryDTO getDetail(CountryDTO countryDTO) throws Exception {
+		Connection con = DBConnector.getConnector();
+		String sql = "SELECT *FROM COUNTRIES WHERE COUNTRY_ID=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setInt(1,countryDTO.getCountry_id()); //인젝션대비
+		ResultSet rs = st.executeQuery();
+		
+		CountryDTO resultDTO= null;
+		
+		if(rs.next()) {
+			resultDTO = new CountryDTO();
+			resultDTO.setCountry_id(rs.getInt("COUNTRY_ID"));
+		
+		}
+			return resultDTO;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public ArrayList<CountryDTO> getList() throws Exception {
 		

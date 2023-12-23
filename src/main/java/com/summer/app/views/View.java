@@ -13,6 +13,7 @@ public class View {
 		for(RegionDTO regionDTO:ar) {
 			System.out.println(regionDTO.getRegion_id()+":"+regionDTO.getRegion_name());
 			System.out.println("===============================");
+			
 		}
 		
 	}
