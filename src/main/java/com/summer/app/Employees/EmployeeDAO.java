@@ -10,10 +10,25 @@ import com.summer.app.util.DBConnector;
 public class EmployeeDAO {
 	
 	
-	public void getDetail() throws Exception {
+	public EmployeeDTO getDetail(EmployeeDTO employeeDTO) throws Exception {
 		Connection con = DBConnector.getConnector();
 		String sql = "SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, employeeDTO.getEmployee_id());
+		ResultSet rs = ps.executeQuery();
+		EmployeeDTO resultDTO = null;
+		if(rs.next()) {
+			resultDTO = new EmployeeDTO();
+			resultDTO.setEmployee_id(rs.getInt("EMPLOYEE_ID"));
+			resultDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
+			resultDTO.setLocation_id(rs.getInt("LOCATION_ID"));
+			resultDTO.setCountry_id(rs.getInt("COUNTRY_ID"));
+			resultDTO.setResion_id(rs.getInt("RESION_ID"));
+			
+		}
+		DBConnector.disConnect(rs, ps, con);
 		
+		return resultDTO;
 	}
 	
 	

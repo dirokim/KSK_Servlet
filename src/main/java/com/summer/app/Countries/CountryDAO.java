@@ -26,6 +26,7 @@ public class CountryDAO {
 			resultDTO.setCountry_id(rs.getInt("COUNTRY_ID"));
 		
 		}
+		DBConnector.disConnect(rs, st, con);
 			return resultDTO;
 	}
 	
