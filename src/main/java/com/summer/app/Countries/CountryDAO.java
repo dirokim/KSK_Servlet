@@ -16,7 +16,7 @@ public class CountryDAO {
 		String sql = "SELECT *FROM COUNTRIES WHERE COUNTRY_ID=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		st.setInt(1,countryDTO.getCountry_id()); //인젝션대비
+		st.setInt(1,countryDTO.getCountry_id()); //�씤�젥�뀡��鍮�
 		ResultSet rs = st.executeQuery();
 		
 		CountryDTO resultDTO= null;

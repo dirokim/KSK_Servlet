@@ -16,6 +16,7 @@ public class CountryMain {
 				System.out.println(countryDTO.getCountry_id());
 		}else {
 			System.out.println("그런 ID 가없습니다");
+			System.out.println("이게맞나 싶다..");
 		}
 			} catch (Exception e) {
 			// TODO Auto-generated catch block
