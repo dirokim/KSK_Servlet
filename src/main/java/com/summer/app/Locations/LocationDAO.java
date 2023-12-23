@@ -9,6 +9,23 @@ import com.summer.app.util.DBConnector;
 
 public class LocationDAO {
 
+	public LocationDTO getDetail(LocationDTO locationDTO) throws Exception {
+		Connection con = DBConnector.getConnector();
+		String sql ="SELECT * FROM LOCATIONS WHERE LOCATION_ID = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, locationDTO.getLocation_id());
+		ResultSet rs = ps.executeQuery();
+		
+		LocationDTO resultDTO = null;
+		if(rs.next()) {
+			resultDTO.setLocation_id(rs.getInt("LOCATION_ID"));
+			resultDTO.setCountry_id(rs.getInt("COUNTRY_ID"));
+			resultDTO.setRegion_id(rs.getInt("REGION_ID"));
+		}
+		DBConnector.disConnect(rs, ps, con);
+		return resultDTO;
+		
+	}
 	
 	
 	public ArrayList<LocationDTO> getList() throws Exception {
