@@ -16,6 +16,7 @@ public class LocationMain {
 				
 			}else {
 				System.out.println("그런 아이디 없습니다 ");
+				System.out.println("Id 확인");
 			}
 			
 		} catch (Exception e) {
