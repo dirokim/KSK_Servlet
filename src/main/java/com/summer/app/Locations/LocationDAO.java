@@ -11,7 +11,7 @@ public class LocationDAO {
 
 	public LocationDTO getDetail(LocationDTO locationDTO) throws Exception {
 		Connection con = DBConnector.getConnector();
-		String sql ="SELECT * FROM LOCATIONS WHERE LOCATION_ID = ?";
+		String sql ="SELECT * FROM LOCATIONS WHERE LOCATION_ID = ?"; //sql 인젝션 대비 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, locationDTO.getLocation_id());
 		ResultSet rs = ps.executeQuery();
