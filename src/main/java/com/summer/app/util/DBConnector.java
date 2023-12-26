@@ -26,4 +26,8 @@ public class DBConnector {
 		ps.close();
 		con.close();
 	}
+	public static void disConnect(PreparedStatement ps,Connection con) throws Exception{
+		ps.close();
+		con.close();
+	}
 }

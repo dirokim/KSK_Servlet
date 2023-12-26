@@ -13,6 +13,16 @@ import com.summer.app.util.DBConnector;
 
 public class RegionDAO {
 	
+	public int add(RegionDTO regionDTO) throws Exception {
+	Connection con = DBConnector.getConnector();
+	String sql = "INSERT INTO REGIONS VALUES (?,?)";
+	PreparedStatement ps = con.prepareStatement(sql);
+	ps.setInt(1,regionDTO.getRegion_id());
+	ps.setString(2, regionDTO.getRegion_name());
+	int result = ps.executeUpdate();  //dml 언어는 
+	DBConnector.disConnect(ps, con);
+	return result;
+	}
 	
 	public RegionDTO getDetail(RegionDTO regionDTO) throws Exception{
 		Connection con = DBConnector.getConnector();

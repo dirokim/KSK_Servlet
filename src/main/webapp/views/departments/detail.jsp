@@ -18,6 +18,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1><%=dto.getDepartment_id() %></h1>
+	<h1><%=dto.getDepartment_name() %></h1>
 </body>
 </html>
