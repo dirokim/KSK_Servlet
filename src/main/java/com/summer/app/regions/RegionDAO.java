@@ -51,11 +51,10 @@ public class RegionDAO {
 			RegionDTO regionDTO = new RegionDTO();
 			int n =	rs.getInt("REGION_ID");
 			regionDTO.setRegion_id(n); 
-			regionDTO.setRegion_name(sql); String name = rs.getString("REGION_NAME");
+			regionDTO.setRegion_name(rs.getString("REGION_NAME"));
 			ar.add(regionDTO);
 			}
-			
-			System.out.println(con);
+		
 			
 			DBConnector.disConnect(rs, st, con);
 			return ar;
