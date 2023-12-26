@@ -17,12 +17,29 @@
 <body>
 	<h1>Country List</h1>
 	<table>
-		<thead>
+		<thead border=1>
 			<tr>
-				<th>
-				</th>
+				<th>국가이름</th>
+				<th>리젼 아이디</th>
+				<th>국가이름</th>
 			</tr>
 		</thead>
+		<tbody>
+			<%=for(CountryDTO countryDTO:ar){ %>
+			<tr>
+				<td>
+					<%=countryDTO.getCountry_id() %>
+				</td>
+				<td>
+					<%=countryDTO.getRegion_id() %>
+				</td>
+				<td>
+				 	<a href="./detail.jsp?country_id=<%=countryDTO.getCountry_id()%>"><%=countryDTO.getCountry_name() %></a>
+				</td>
+			</tr>
+			
+			<%}%>
+		</tbody>
 	
 	</table>
 
