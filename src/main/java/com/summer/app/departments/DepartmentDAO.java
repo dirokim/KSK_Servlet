@@ -9,8 +9,25 @@ import java.util.ArrayList;
 
 import com.summer.app.util.DBConnector;
 
+import oracle.jdbc.proxy.annotation.Pre;
+
 public class DepartmentDAO {
 	//getDetail, 부서번호로 부서정보 조회'
+	
+	public int add(DepartmentDTO departmentDTO)throws Exception{
+		Connection con = DBConnector.getConnector();
+		String sql = "INSERT DEPARTMENTS VALUES(?,?,NULL,?)";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, departmentDTO.getDepartment_id());
+		ps.setString(2,departmentDTO.getDepartment_name() );
+
+		ps.setInt(3,departmentDTO.getLocation_id());
+		
+		int result = ps.executeUpdate();
+		DBConnector.disConnect(ps, con);
+		return result;
+		
+	}
 	
 	public DepartmentDTO getDetail(DepartmentDTO departmentDTO) throws Exception {
 		Connection con = DBConnector.getConnector();

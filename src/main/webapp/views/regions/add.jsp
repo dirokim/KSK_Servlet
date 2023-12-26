@@ -3,13 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    RegionDAO regionDAO = new RegionDAO();
-	RegionDTO regionDTO = new RegionDTO();
-	String id =  request.getParameter("region_id");
-    String name = request.getParameter("region_name");
-  	
-	
-    Int result = regionDAO.add(regionDTO);
+ 
 	
 	
     %>

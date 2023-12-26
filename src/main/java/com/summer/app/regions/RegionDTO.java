@@ -9,6 +9,8 @@ public class  RegionDTO {
 	// 4. 멤버 변수의 이름과 Datatype은  DB의 Table의 컬럼명과 Datatype 일치 
 	private Integer region_id;
 	private String region_name;
+	private Integer manager_id;
+	private Integer location_id;
 	
 	
 	
@@ -16,6 +18,18 @@ public class  RegionDTO {
 	
 
 	
+	public Integer getManager_id() {
+		return manager_id;
+	}
+	public void setManager_id(Integer manager_id) {
+		this.manager_id = manager_id;
+	}
+	public Integer getLocation_id() {
+		return location_id;
+	}
+	public void setLocation_id(Integer location_id) {
+		this.location_id = location_id;
+	}
 	public Integer getRegion_id() {
 		return region_id;
 	}
