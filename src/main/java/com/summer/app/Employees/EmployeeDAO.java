@@ -50,7 +50,7 @@ public class EmployeeDAO {
 			employeeDTO.setResion_id(rs.getInt("REGION_ID"));
 			employeeDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
 			employeeDTO.setEmployee_id(rs.getInt("EMPLOYEE_id"));
-			
+			   
 			ar.add(employeeDTO);
 			}
 		DBConnector.disConnect(rs, ps, con);
