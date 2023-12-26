@@ -8,5 +8,9 @@
 </head>
 <body>
 
+	<h1>Country Detail</h1>
+
+
+
 </body>
 </html>
