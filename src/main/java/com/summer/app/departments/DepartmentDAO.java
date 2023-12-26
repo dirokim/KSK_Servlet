@@ -14,6 +14,20 @@ import oracle.jdbc.proxy.annotation.Pre;
 public class DepartmentDAO {
 	//getDetail, 부서번호로 부서정보 조회'
 	
+	
+	public int update(DepartmentDTO departmentDTO) throws Exception {
+		Connection con =  DBConnector.getConnector();
+		String sql="UPDATE DEPARTMENTS SET DEPARTMENT_NAME =? ,MANAGER_ID =?,LOCATION_ID = ? WHERE DEPARTMENT_ID =?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, departmentDTO.getDepartment_name());
+		ps.setInt(2, departmentDTO.getManager_id());
+		ps.setInt(3, departmentDTO.getLocation_id());
+		ps.setInt(4, departmentDTO.getDepartment_id());
+		int result = ps.executeUpdate();
+		DBConnector.disConnect(ps, con);
+		return result;
+		}
+	
 	public int add(DepartmentDTO departmentDTO)throws Exception{
 		Connection con = DBConnector.getConnector();
 		String sql = "INSERT DEPARTMENTS VALUES(?,?,NULL,?)";

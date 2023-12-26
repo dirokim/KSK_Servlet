@@ -24,7 +24,7 @@
 	
 		<form id="" class="" action="./update.jsp">
 		<div>
-		    대륙ID<input name="region_id" type="text" value="<%=regionDTO.getRegion_id() %>">
+		    대륙ID<input name="region_id" readonly="readonly" type="text" value="<%=regionDTO.getRegion_id() %>">
 		</div>
 		<div>
 			대륙명 <input type="text" name="region_name" value="<%=regionDTO.getRegion_name()%>">;

@@ -35,8 +35,8 @@
 			</tr>
 		<%} %>
 		</tbody>
-	</table>
-
+	</table> 
+ <a href="./add.jsp">추가</a>
 
 </body>
 </html>
