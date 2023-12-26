@@ -26,16 +26,7 @@ public class RegionDAO {
 		
 		return result;
 				
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		 
+W
 	}
 	
 	public int add(RegionDTO regionDTO) throws Exception {

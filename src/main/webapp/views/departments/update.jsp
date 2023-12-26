@@ -17,10 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form id="" class="" action="./update.jsp">
-	<div>
-	부서번호 <input type="text" value="<%=departmentDTO.getDepartment_id() %>" name="department_id" >
-	</div>
+	<form id="" class="" action="./updateProcess.jsp">
 	<div>
 	부서명 <input type="text" value="<%=departmentDTO.getDepartment_name()%>" name="department_name">
 	</div>
@@ -29,6 +26,9 @@
 	</div>
 	<div>
 	지역 아이디 <input type="text" value="<%=departmentDTO.getLocation_id() %>" name="location_id">	
+	</div>
+	<div>
+	부서번호 <input type="text" value="<%=departmentDTO.getDepartment_id() %>" name="department_id" >
 	</div>
 	<button>수정</button>
 	</form>
