@@ -20,8 +20,8 @@ public class DepartmentDAO {
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, departmentDTO.getDepartment_id());
 		ps.setString(2,departmentDTO.getDepartment_name() );
-
-		ps.setInt(3,departmentDTO.getLocation_id());
+		ps.setInt(3, departmentDTO.getManager_id());
+		ps.setInt(4,departmentDTO.getLocation_id());
 		
 		int result = ps.executeUpdate();
 		DBConnector.disConnect(ps, con);

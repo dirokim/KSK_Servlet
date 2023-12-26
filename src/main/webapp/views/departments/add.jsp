@@ -16,6 +16,9 @@
 		추가할 부서명	<input type="text" name="department_name">
 	</div>
 	<div>
+		추가할 매니저아이디 <input type="text" name="manager_id">
+	</div>
+	<div>
 		추가할 로케이션아이디<input type="text" name="location_id">
 	</div>
 	<button>추가</button>

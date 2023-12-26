@@ -1,5 +1,6 @@
 package com.summer.app.regions;
 
+import java.security.spec.PSSParameterSpec;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +13,30 @@ import javax.naming.spi.DirStateFactory.Result;
 import com.summer.app.util.DBConnector;
 
 public class RegionDAO {
+	
+	public int update(RegionDTO regionDTO)throws Exception {
+		Connection con = DBConnector.getConnector();
+		String sql="UPDATE REGIONS SET REGION_NAME=? WHERE REGION_ID=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, regionDTO.getRegion_name());
+		ps.setInt(2, regionDTO.getRegion_id());
+		
+		int result = ps.executeUpdate();
+		DBConnector.disConnect(ps, con);
+		
+		return result;
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		 
+	}
 	
 	public int add(RegionDTO regionDTO) throws Exception {
 	Connection con = DBConnector.getConnector();
