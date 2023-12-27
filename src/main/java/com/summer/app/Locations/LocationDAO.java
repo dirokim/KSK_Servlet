@@ -8,7 +8,28 @@ import java.util.ArrayList;
 import com.summer.app.util.DBConnector;
 
 public class LocationDAO {
+	
+	public void update() throws Exception {
+		Connection con = DBConnector.getConnector();
+		String sql ="UPDATE LOCATIONS SET LOCATION_ID=? , COUNTRY_ID=?, STREET_ADDRESS=?,POSTAL_CODE=?,CITY=?,STATE_PROVINCE=?";
+		
+	}
 
+	public int add(LocationDTO locationDTO) throws Exception {
+		Connection con =  DBConnector.getConnector();
+		String sql = "INSERT INTO LOCATIONS VALUES(?,?,?,?,?,?)";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, locationDTO.getLocation_id());
+		ps.setInt(2, locationDTO.getCountry_id());
+		ps.setString(3, locationDTO.getStreet_address());
+		ps.setString(4, locationDTO.getPostal_code());
+		ps.setString(5,	locationDTO.getCity());
+		ps.setString(6, locationDTO.getState_province());
+		int result = ps.executeUpdate();
+		DBConnector.disConnect(ps, con);
+		return result;
+	}
+	
 	public LocationDTO getDetail(LocationDTO locationDTO) throws Exception {
 		Connection con = DBConnector.getConnector();
 		String sql ="SELECT * FROM LOCATIONS WHERE LOCATION_ID = ?"; //sql 인젝션 대비 
@@ -20,7 +41,11 @@ public class LocationDAO {
 		if(rs.next()) {
 			resultDTO.setLocation_id(rs.getInt("LOCATION_ID"));
 			resultDTO.setCountry_id(rs.getInt("COUNTRY_ID"));
-			resultDTO.setRegion_id(rs.getInt("REGION_ID"));
+			resultDTO.setStreet_address(rs.getString("STREET_ADDRESS"));
+			resultDTO.setPostal_code(rs.getString("POSTAL_CODE"));
+			resultDTO.setCity(rs.getString("CITY"));
+			resultDTO.setState_province(rs.getString("STATE_PROVINCE"));
+			
 		}
 		DBConnector.disConnect(rs, ps, con);
 		return resultDTO;
