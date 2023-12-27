@@ -9,10 +9,21 @@ import com.summer.app.util.DBConnector;
 
 public class LocationDAO {
 	
-	public void update() throws Exception {
+	public int update(LocationDTO locationDTO) throws Exception {
 		Connection con = DBConnector.getConnector();
 		String sql ="UPDATE LOCATIONS SET LOCATION_ID=? , COUNTRY_ID=?, STREET_ADDRESS=?,POSTAL_CODE=?,CITY=?,STATE_PROVINCE=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, locationDTO.getLocation_id());
+		ps.setInt(2, locationDTO.getCountry_id());
+		ps.setString(3,	locationDTO.getStreet_address());
+		ps.setString(4, locationDTO.getPostal_code());
+		ps.setString(5, locationDTO.getCity());
+		ps.setString(6, locationDTO.getState_province());
+		int result = ps.executeUpdate();
+		DBConnector.disConnect(ps, con);
+		return result;
 		
+	
 	}
 
 	public int add(LocationDTO locationDTO) throws Exception {
