@@ -39,9 +39,11 @@ public class LocationDAO {
 			LocationDTO locationDTO = new LocationDTO();
 			locationDTO.setLocation_id(rs.getInt("LOCATIONS_ID"));
 			locationDTO.setCountry_id(rs.getInt("COUNTRY_ID"));
-			locationDTO.setRegion_id(rs.getInt("REGION_ID"));
+			locationDTO.setStreet_address(rs.getString("STREET_ADDRESS"));
+			locationDTO.setPostal_code(rs.getString("POSTAL_CODE"));
+			locationDTO.setCity(rs.getString("CITY"));
+			locationDTO.setState_province("STATE_PROVINCE");
 			ar.add(locationDTO);
-			
 		}
 		DBConnector.disConnect(rs, ps, con);
 		return ar;
