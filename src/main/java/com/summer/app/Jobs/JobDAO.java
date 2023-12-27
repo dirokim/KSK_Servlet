@@ -7,28 +7,37 @@ import java.util.ArrayList;
 
 import com.summer.app.util.DBConnector;
 
-import oracle.jdbc.proxy.annotation.Pre;
-
 public class JobDAO {
-	public void update() {
-		
-	}
-	public int add(JobDTO jobDTO) throws Exception {
+	
+	
+	public int update(JobDTO jobDTO) throws Exception {
 		Connection con = DBConnector.getConnector();
-		String stl = "INSERT INTO JOBS VALUE (?,?,?,?)" ;
-		PreparedStatement ps = con.prepareStatement(stl);
-		ps.setString(1, jobDTO.getJob_id());
-		ps.setString(2, jobDTO.getJob_title());
+		String sql = "UPDATE JOBS SET JOB_TITLE=?,MAX_SALARY=?,MIN_SALARY=? WHERE JOB_ID=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1,jobDTO.getJob_title() );
+		ps.setInt(2, jobDTO.getMax_salary());
 		ps.setInt(3, jobDTO.getMin_salary());
-		ps.setInt(4, jobDTO.getMax_salary());
+		ps.setString(4, jobDTO.getJob_id());
 		int result = ps.executeUpdate();
 		DBConnector.disConnect(ps, con);
-		return result; 
-		
-		
-	
-	
+		return result;
 	}
+	
+	
+	public int add (JobDTO jobDTO) throws Exception {
+		Connection con = DBConnector.getConnector();
+		String sql = "INSERT INTO JOBS VALUE(?,?,?,?) ";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(0, jobDTO.getJob_id());
+		ps.setString(0, jobDTO.getJob_title());
+		ps.setInt(0, jobDTO.getMax_salary());
+		ps.setInt(0, jobDTO.getMin_salary());
+		int result = ps.executeUpdate();
+		DBConnector.disConnect(ps, con);
+		return result;
+		
+	}
+	
 	public JobDTO getDetail(JobDTO jobDTO) throws Exception {
 		Connection con =  DBConnector.getConnector();
 		String sql ="SELECT * FROM JOBS WHERE JOBS_ID = ?";
