@@ -9,11 +9,30 @@ import java.util.Map;
 
 import com.summer.app.util.DBConnector;
 
+import oracle.jdbc.proxy.annotation.Pre;
+
 public class EmployeeDAO {
 	
 	public int update(EmployeeDTO employeeDTO) throws Exception{
 		Connection con = DBConnector.getConnector();
-		String sql="UPDATE EMPLOYEES SET EMPLOYEE_ID=?,FIRST_NAME=?,LAST_NAME=?,EMAIL=?,PHONE_NUMBER=?,HIRE_DATE,JOB_ID,SALARY=?,JOB_ID=?,SALARY=?,COMMISSION_PCT,MANAGER_ID=? WHERE DEPARTMENT_ID=?";
+		String sql="UPDATE EMPLOYEES SET DEPARTMENT_ID=?,FIRST_NAME=?,LAST_NAME=?,EMAIL=?,PHONE_NUMBER=?,HIRE_DATE,JOB_ID,SALARY=?,JOB_ID=?,SALARY=?,COMMISSION_PCT,MANAGER_ID=? WHERE EMPLOYEE_ID=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, employeeDTO.getDepartment_id());
+		ps.setString(2, employeeDTO.getFirst_name());
+		ps.setString(3, employeeDTO.getLast_name());
+		ps.setString(4, employeeDTO.getEmail());
+		ps.setString(5, employeeDTO.getPhone_number());
+		ps.setDate(6, employeeDTO.getHire_date());
+		ps.setString(7, employeeDTO.getJob_id());
+		ps.setInt(8, employeeDTO.getSalary());
+		ps.setInt(9, employeeDTO.getCommission_pct());
+		ps.setInt(10, employeeDTO.getManager_id());
+		ps.setInt(11, employeeDTO.getEmployee_id());
+		int result = ps.executeUpdate();
+		DBConnector.disConnect(ps, con);
+		return result;
+	
+		
 	}
 	
 	

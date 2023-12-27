@@ -3,10 +3,10 @@ package com.summer.app.Jobs;
 public class JobDTO {
 
 	private String job_id;
+	private String job_title;
 	private int min_salary;
 	private int max_salary;
-	private String job_title;
-	
+
 	
 	
 	
