@@ -8,6 +8,22 @@ import java.util.ArrayList;
 import com.summer.app.util.DBConnector;
 
 public class JobDAO {
+	
+	
+	public void update() {
+		
+	}
+	
+	
+	public void add () throws Exception {
+		Connection con = DBConnector.getConnector();
+		String sql = "INSERT INTO JOBS VALUE(?,?,?,?) ";
+		PreparedStatement ps = con.prepareStatement(sql);
+		
+		ps.setInt(0, 0);
+		ps.setInt(0, 0);
+	}
+	
 	public JobDTO getDetail(JobDTO jobDTO) throws Exception {
 		Connection con =  DBConnector.getConnector();
 		String sql ="SELECT * FROM JOBS WHERE JOBS_ID = ?";
