@@ -4,11 +4,28 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.summer.app.util.DBConnector;
 
 public class EmployeeDAO {
 	
+	//사원의 급여의 합계를 가지고 오자 
+	public Map<String, Integer> getSalary()throws Exception {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		Connection con = DBConnector.getConnector();
+		String sql = "SELECT SUM(SALARY) AS S,COUNT(EMPLOYEE_ID) AS E FROM EMPLOYEES";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int sum = rs.getInt("S");
+		int count = rs.getInt("E"); 
+		map.put("count", count);
+		map.put("sum", sum);
+		DBConnector.disConnect(rs, ps, con);
+		return map;
+	}
 	
 	public EmployeeDTO getDetail(EmployeeDTO employeeDTO) throws Exception {
 		Connection con = DBConnector.getConnector();
