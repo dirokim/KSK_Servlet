@@ -1,21 +1,82 @@
 package com.summer.app.Employees;
 
+import java.sql.Date;
+
 public class EmployeeDTO {
 
 	private int employee_id;
+	private String first_name;
+	private String last_name;
+	private String email;
+	private String phone_number;
+	private Date hire_date;
+	private String job_id;
+	private int salary;
+	private int commission_pct;
+	private int manager_id;
 	private int department_id;
-	private int location_id;
-	private int country_id;
-	private int resion_id;
 	
 	
 	
-	
+	public String getPhone_number() {
+		return phone_number;
+	}
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
+	}
 	public int getEmployee_id() {
 		return employee_id;
 	}
 	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;
+	}
+	public String getFirst_name() {
+		return first_name;
+	}
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+	public String getLast_name() {
+		return last_name;
+	}
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Date getHire_date() {
+		return hire_date;
+	}
+	public void setHire_date(Date hire_date) {
+		this.hire_date = hire_date;
+	}
+	public String getJob_id() {
+		return job_id;
+	}
+	public void setJob_id(String job_id) {
+		this.job_id = job_id;
+	}
+	public int getSalary() {
+		return salary;
+	}
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+	public int getCommission_pct() {
+		return commission_pct;
+	}
+	public void setCommission_pct(int commission_pct) {
+		this.commission_pct = commission_pct;
+	}
+	public int getManager_id() {
+		return manager_id;
+	}
+	public void setManager_id(int manager_id) {
+		this.manager_id = manager_id;
 	}
 	public int getDepartment_id() {
 		return department_id;
@@ -23,25 +84,7 @@ public class EmployeeDTO {
 	public void setDepartment_id(int department_id) {
 		this.department_id = department_id;
 	}
-	public int getLocation_id() {
-		return location_id;
-	}
-	public void setLocation_id(int location_id) {
-		this.location_id = location_id;
-	}
-	public int getCountry_id() {
-		return country_id;
-	}
-	public void setCountry_id(int country_id) {
-		this.country_id = country_id;
-	}
-	public int getResion_id() {
-		return resion_id;
-	}
-	public void setResion_id(int resion_id) {
-		this.resion_id = resion_id;
-	}
-	
+
 	
 	
 }

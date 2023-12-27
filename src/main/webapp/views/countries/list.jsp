@@ -25,24 +25,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%=for(CountryDTO countryDTO:ar){ %>
+			<%for(CountryDTO countryDTO:ar){%>
 			<tr>
-				<td>
-					<%=countryDTO.getCountry_id() %>
-				</td>
-				<td>
-					<%=countryDTO.getRegion_id() %>
-				</td>
-				<td>
-				 	<a href="./detail.jsp?country_id=<%=countryDTO.getCountry_id()%>"><%=countryDTO.getCountry_name() %></a>
-				</td>
+				<td><%=countryDTO.getCountry_id() %></td>
+				<td><%=countryDTO.getRegion_id() %></td>
+				<td><a href="./detail.jsp?country_id=<%=countryDTO.getCountry_id()%>"><%=countryDTO.getCountry_name()%></a></td>
 			</tr>
-			
 			<%}%>
 		</tbody>
 	
 	</table>
-
+	<a href="./add.jsp">추가</a>
 
 
 

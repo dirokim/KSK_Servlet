@@ -11,6 +11,33 @@ import com.summer.app.util.DBConnector;
 
 public class EmployeeDAO {
 	
+	//사원 추가
+	public int add(EmployeeDTO employeeDTO) throws Exception{
+		Connection con = DBConnector.getConnector();
+		String sql="INSERT INTO EMPLOYEES"+
+		" VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+	
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, employeeDTO.getEmployee_id());
+		ps.setString(2,employeeDTO.getFirst_name());
+		ps.setString(3, employeeDTO.getLast_name());
+		ps.setString(4, employeeDTO.getEmail());
+		ps.setString(5, employeeDTO.getPhone_number());
+		ps.setDate(6,employeeDTO.getHire_date());
+		ps.setString(7, employeeDTO.getJob_id());
+		ps.setInt(8, employeeDTO.getSalary());
+		ps.setInt(9, employeeDTO.getCommission_pct());
+		ps.setInt(10,employeeDTO.getManager_id());
+		ps.setInt(11, employeeDTO.getDepartment_id());
+		
+		
+		int result = ps.executeUpdate();
+		DBConnector.disConnect(ps, con);
+		
+		return result;
+	
+	}
+	
 	//사원의 급여의 합계를 가지고 오자 
 	public Map<String, Integer> getSalary()throws Exception {
 		Map<String, Integer> map = new HashMap<String, Integer>();
