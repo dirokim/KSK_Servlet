@@ -25,6 +25,7 @@
 			</tr>
 		</thead>
 		<tbody>
+			<%= for(CountryDTO countryDTO:ar){%>
 			<%for(CountryDTO countryDTO:ar){%>
 			<tr>
 				<td><%=countryDTO.getCountry_id() %></td>
