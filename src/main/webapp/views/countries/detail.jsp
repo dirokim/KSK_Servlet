@@ -23,8 +23,16 @@
 
 	<h1><%=countryDTO.getCountry_name() %></h1>
 	
-	<button>추가</button>
+	<button id="btn">추가</button>
 
+	<script>
+		let  btn = document.getElementById("btn");
+		btn.addEventListener('click',function(){
+			
+			location.href="./add.jsp?"
+		});
+		
+	</script>
 
 
 </body>
