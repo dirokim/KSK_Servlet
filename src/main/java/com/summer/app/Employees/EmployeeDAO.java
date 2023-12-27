@@ -23,6 +23,7 @@ public class EmployeeDAO {
 		int count = rs.getInt("E"); 
 		map.put("count", count);
 		map.put("sum", sum);
+		
 		DBConnector.disConnect(rs, ps, con);
 		return map;
 	}
