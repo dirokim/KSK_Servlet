@@ -11,6 +11,12 @@ import com.summer.app.util.DBConnector;
 
 public class EmployeeDAO {
 	
+	public int update(EmployeeDTO employeeDTO) throws Exception{
+		Connection con = DBConnector.getConnector();
+		String sql="UPDATE EMPLOYEES SET EMPLOYEE_ID=?,FIRST_NAME=?,LAST_NAME=?,EMAIL=?,PHONE_NUMBER=?,HIRE_DATE,JOB_ID,SALARY=?,JOB_ID=?,SALARY=?,COMMISSION_PCT,MANAGER_ID=? WHERE DEPARTMENT_ID=?";
+	}
+	
+	
 	//사원 추가
 	public int add(EmployeeDTO employeeDTO) throws Exception{
 		Connection con = DBConnector.getConnector();

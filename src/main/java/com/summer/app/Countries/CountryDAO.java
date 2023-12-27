@@ -7,9 +7,40 @@ import java.util.ArrayList;
 
 import com.summer.app.util.DBConnector;
 
+import oracle.jdbc.proxy.annotation.Pre;
+
 
 
 public class CountryDAO {
+	public int update(CountryDTO countryDTO) throws Exception {
+		Connection con = DBConnector.getConnector();
+		String sql="UPDATE COUNTRRIES SET COUNTRY_NAME=?,REGION_ID=? WHERE COUNTRY_ID=?  ";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, countryDTO.getCountry_name());
+		ps.setInt(2, countryDTO.getRegion_id());
+		ps.setInt(3, countryDTO.getCountry_id());
+		int result = ps.executeUpdate();
+		DBConnector.disConnect(ps, con);
+		return result;
+	}
+	
+	public int add (CountryDTO countryDTO) throws Exception {
+		Connection con = DBConnector.getConnector();
+		String sql="INSEART INTO COUNTRIES VALUES (?,?,?)";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, countryDTO.getCountry_id());
+		ps.setString(2, countryDTO.getCountry_name());
+		ps.setInt(3, countryDTO.getRegion_id());
+		int result = ps.executeUpdate();
+		
+		DBConnector.disConnect(ps, con);
+		
+		return result;
+		
+		
+	}
+	
+	
 	
 	public CountryDTO getDetail(CountryDTO countryDTO) throws Exception {
 		Connection con = DBConnector.getConnector();
@@ -29,16 +60,6 @@ public class CountryDAO {
 		DBConnector.disConnect(rs, st, con);
 			return resultDTO;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 

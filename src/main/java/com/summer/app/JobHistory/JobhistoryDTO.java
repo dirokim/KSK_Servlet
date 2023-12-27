@@ -1,10 +1,12 @@
 package com.summer.app.JobHistory;
 
+import java.sql.Date;
+
 public class JobhistoryDTO {
 	
 	private int employee_id;
-	private date start_date;
-	private date end_date;
+	private Date start_date;
+	private Date end_date;
 	private String job_id;
 	private int department_id;
 	
