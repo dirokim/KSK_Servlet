@@ -7,12 +7,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.summer.app.Employees.EmployeeDTO;
 import com.summer.app.util.DBConnector;
 
 import oracle.jdbc.proxy.annotation.Pre;
 
 public class DepartmentDAO {
 	//getDetail, 부서번호로 부서정보 조회'
+	
+	
+	public void test() {
+		String sql = "SELECT D.* ,E.FIRST_NAME"
+				+ " FROM DEPARTMENTS D"
+				+ " INNER JOIN EMPLOYEES E "
+				+ " ON D.DEPARTMENT_ID = E.DEPARTMENT_ID"
+				+ " WHERE D.DEPARTMENT_ID = 20";
+		ResultSet rs = null;
+		while(rs.next()) {
+			DepartmentDTO departmentDTO = new DepartmentDTO();
+			EmployeeDTO employeeDTO = new EmployeeDTO();
+			
+		}
+	}
+	
+	
 	
 	
 	public int update(DepartmentDTO departmentDTO) throws Exception {
