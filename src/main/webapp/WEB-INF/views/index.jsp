@@ -6,7 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-
+<body>	
+	<h1>Main Page</h1>
+	
+	
+	
+	
+	
 </body>
 </html>
