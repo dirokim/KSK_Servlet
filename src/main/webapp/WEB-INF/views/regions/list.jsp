@@ -7,7 +7,7 @@
     //자바구역 스크립틀릿
 	//request  변수명
 	List<RegionDTO> ar =(List<RegionDTO>)request.getAttribute("list");
-    
+    	 //${requestScope.list}
     %>
 <!DOCTYPE html>
 <html>
