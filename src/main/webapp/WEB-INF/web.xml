@@ -8,11 +8,19 @@
 		<!-- new FrontController 톰캣한테 변수선언 -->
 		<servlet-class>com.summer.app.controllers.FrontController</servlet-class>
 	</servlet>
-
+	
 	<servlet-mapping>
 	<servlet-name>fc</servlet-name>
-	<url-pattern>/index.do</url-pattern> 
+	<url-pattern>/</url-pattern>   <!--/가왔을떄 실행  -->
 	</servlet-mapping> 
+
+
+
+
+
+
+
+
 
 
 

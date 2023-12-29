@@ -5,8 +5,8 @@
     pageEncoding="UTF-8"%>
     <%
     //자바구역 스크립틀릿
-    RegionDAO regionDAO = new RegionDAO();
-    List<RegionDTO> ar = regionDAO.getList();
+	//request  변수명
+	List<RegionDTO> ar =(List<RegionDTO>)request.getAttribute("list");
     
     %>
 <!DOCTYPE html>
@@ -30,9 +30,9 @@
 			<% for(RegionDTO regionDTO:ar){%> 
 				<tr>
 				<td><%=regionDTO.getRegion_id()%></td>
-				<td><a href="./detail.jsp?region_id=<%=regionDTO.getRegion_id()%>"><%=regionDTO.getRegion_name()%></a></td>
+				<td><a href="/detail?region_id=<%=regionDTO.getRegion_id()%>"><%=regionDTO.getRegion_name()%></a></td>
 				</tr>
-				
+			
 			<%}%>
 		</tbody>
 	</table>

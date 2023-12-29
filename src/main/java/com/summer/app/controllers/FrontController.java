@@ -33,11 +33,59 @@ public class FrontController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/index.jsp");
+		
+//		String contextPath =  request.getContextPath();
+//		System.out.println("contextPath"+contextPath);
+//		String method = request.getMethod();
+//		System.out.println(method);
+//		String fathInfo = request.getPathInfo();
+//		System.out.println(fathInfo);
+//		String uri = request.getRequestURI();
+//		System.out.println(uri);
+//		String url = request.getRequestURL().toString();
+//		System.out.println(url);
+//		String [] names = uri.split("/");
+//		System.out.println(names.length);
+//		for(String n:names) {
+//			System.out.println(n);
+//			
+//		}
+		String uri = request.getRequestURI();
+		String [] names = uri.split("/");
+		String v = "/WEB-INF/views/index.jsp";
+		try {
+		if(names[1].equals("regions")) {
+				//regionDAO 사용
+					RegionDAO regionDAO = new RegionDAO();
+			if(names[2].equals("list")) {
+				List<RegionDTO> ar = regionDAO.getList();
+				request.setAttribute("list", ar);
+				v ="/WEB-INF/views/regions/list.jsp";
+			}else if(names[2].equals("detail")) {
+				String id = request.getParameter("region_id");
+				RegionDTO regionDTO = new RegionDTO();	
+				regionDTO.setRegion_id(Integer.parseInt(id));
+				regionDTO =regionDAO.getDetail(regionDTO);
+				request.setAttribute("detail",regionDTO);
+				v ="/WEB-INF/views/regions/detail.jsp";
+				}
+			}else if(names[1].equals("countries")) {
+			//countryDAO 사용
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+	
+		
+			
+		
+		RequestDispatcher view = request.getRequestDispatcher(v);
 		view.forward(request, response);
 		
+		
+		
+	
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

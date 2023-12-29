@@ -4,12 +4,10 @@
     pageEncoding="UTF-8"%>
  
   <%
-    RegionDTO regionDTO = new RegionDTO();
-    RegionDAO regionDAO = new RegionDAO();
-    String nas = request.getParameter("region_id"); 
-    int num = Integer.parseInt(nas);
-    regionDTO.setRegion_id(num);
-    regionDTO = regionDAO.getDetail(regionDTO);
+    
+    //RegionDTO regionDTO = (RegionDTO)request.getAttribute("detail");
+	
+
  %> 
  
 <!DOCTYPE html>
@@ -20,9 +18,9 @@
 </head>
 <body>
 	<h1>Region Detail</h1>
-	<h3><%=regionDTO.getRegion_name() %></h3>
-	
-	<input type="hidden" value="<%=regionDTO.getRegion_id() %>" id="hidden">
+	<h3>${requestScope.detail.region_id}</h3>
+	<h3>${requestScope.detail.region_name }</h3>	
+	<input type="hidden" value="" id="hidden">
 	<button id="btn">수정</button>
  
 	<script type="text/javascript">
