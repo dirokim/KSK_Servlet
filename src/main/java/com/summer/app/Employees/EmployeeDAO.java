@@ -115,13 +115,20 @@ public class EmployeeDAO {
 		ArrayList<EmployeeDTO> ar = new ArrayList<EmployeeDTO>();
 		while(rs.next()) {
 			EmployeeDTO employeeDTO = new EmployeeDTO();
-			employeeDTO.setLocation_id(rs.getInt("LOCATION_ID"));
-			employeeDTO.setCountry_id(rs.getInt("COUNTRY_ID"));
-			employeeDTO.setResion_id(rs.getInt("REGION_ID"));
-			employeeDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
 			employeeDTO.setEmployee_id(rs.getInt("EMPLOYEE_id"));
+			employeeDTO.setFirst_name(rs.getString("FIRST_NAME"));
+			employeeDTO.setLast_name(rs.getString("LAST_NAME"));
+			employeeDTO.setEmail(rs.getString("EMAIL"));
+			employeeDTO.setPhone_number(rs.getString("PHONE_NUMBER"));
+			employeeDTO.setHire_date(rs.getDate("HIRE_DATE"));
+			employeeDTO.setJob_id(rs.getString("JOB_ID"));
+			employeeDTO.setSalary(rs.getInt("SALARY"));
+			employeeDTO.setCommission_pct(rs.getInt("COMMISSION_PCT"));
+			employeeDTO.setManager_id(rs.getInt("MANAGER_ID"));
+			employeeDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
 			   
 			ar.add(employeeDTO);
+			 
 			}
 		DBConnector.disConnect(rs, ps, con);
 		return ar;
