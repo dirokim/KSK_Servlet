@@ -45,8 +45,17 @@
 		<tbody>
 			<% for (EmployeeDTO employeeDTO : ar) {%>
 				<tr>
-					<td><a></a></td>
-				
+					<td><a>EmployeeDTO.getEmployee_id()</a></td>
+					<td>EmployeeDTO.getFirst_name()</td>
+					<td>EmployeeDTO.getLast_name()</td>
+					<td>EmployeeDTO.getEmail</td>
+					<td>EmployeeDTO.getPhone_number</td>
+					<td>EmployeeDTO.getHire_date</td>
+					<td>EmployeeDTO.getJob_id</td>
+					<td>EmployeeDTO.getSalary</td>
+					<td>EmployeeDTO.getCommission_pct</td>
+					<td>EmployeeDTO.getManager_id</td>
+					<td>EmployeeDTO.getDepartment_id</td>
 				
 				
 				</tr>
