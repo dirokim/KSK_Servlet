@@ -45,19 +45,17 @@
 		<tbody>
 			<% for (EmployeeDTO employeeDTO : ar) {%>
 				<tr>
-					<td><a>EmployeeDTO.getEmployee_id()</a></td>
-					<td>EmployeeDTO.getFirst_name()</td>
-					<td>EmployeeDTO.getLast_name()</td>
-					<td>EmployeeDTO.getEmail</td>
-					<td>EmployeeDTO.getPhone_number</td>
-					<td>EmployeeDTO.getHire_date</td>
-					<td>EmployeeDTO.getJob_id</td>
-					<td>EmployeeDTO.getSalary</td>
-					<td>EmployeeDTO.getCommission_pct</td>
-					<td>EmployeeDTO.getManager_id</td>
-					<td>EmployeeDTO.getDepartment_id</td>
-				
-				
+					<td><a href="./detail.jsp?employee_id=<%=EmployeeDTO.getDepartment_id()%>">EmployeeDTO.getEmployee_id()</a></td>
+					<td><a href="./detail.jsp?employee_id=<%=EmployeeDTO.getDepartment_id()%>">EmployeeDTO.getFirst_name()</a></td>
+					<td><a href="./detail.jsp?employee_id=<%=EmployeeDTO.getDepartment_id()%>">EmployeeDTO.getLast_name()</a></td>
+					<td><a href="./detail.jsp?employee_id=<%=EmployeeDTO.getDepartment_id()%>">EmployeeDTO.getEmail</a></td>
+					<td><a href="./detail.jsp?employee_id=<%=EmployeeDTO.getDepartment_id()%>">EmployeeDTO.getPhone_number</a></td>
+					<td><a href="./detail.jsp?employee_id=<%=EmployeeDTO.getDepartment_id()%>">EmployeeDTO.getHire_date</a></td>
+					<td><a href="./detail.jsp?employee_id=<%=EmployeeDTO.getDepartment_id()%>">EmployeeDTO.getJob_id</a></td>
+					<td><a href="./detail.jsp?employee_id=<%=EmployeeDTO.getDepartment_id()%>">EmployeeDTO.getSalary</a></td>
+					<td><a href="./detail.jsp?employee_id=<%=EmployeeDTO.getDepartment_id()%>">EmployeeDTO.getCommission_pct</a></td>
+					<td><a href="./detail.jsp?employee_id=<%=EmployeeDTO.getDepartment_id()%>">EmployeeDTO.getManager_id</a></td>
+					<td><a href="./detail.jsp?employee_id=<%=EmployeeDTO.getDepartment_id()%>">EmployeeDTO.getDepartment_id</a></td>
 				</tr>
 			<%}%>
 		</tbody>
