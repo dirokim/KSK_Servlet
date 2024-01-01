@@ -58,7 +58,7 @@ public class JobDAO {
 	}
 	
 
-	public ArrayList<JobDTO> getlist() throws Exception {
+	public ArrayList<JobDTO> getList() throws Exception {
 		
 		Connection con = DBConnector.getConnector();
 		String sql="SELECT * FROM JOBS";
