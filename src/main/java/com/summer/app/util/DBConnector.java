@@ -11,7 +11,7 @@ public class DBConnector {
 	public static Connection getConnector() throws Exception {
 		String user="user01";
 		String password="user01";
-		String url="jdbc:oracle:thin:@15.164.166.26:1521:xe";
+		String url="jdbc:oracle:thin:@13.209.35.30:1521:xe";
 		String driver = "oracle.jdbc.driver.OracleDriver";
 
 			Class.forName(driver);
