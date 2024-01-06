@@ -32,7 +32,7 @@ public class EmployeeDAO {
 		DBConnector.disConnect(ps, con);
 		return result;
 	
-		
+		 
 	}
 	
 	
@@ -88,12 +88,12 @@ public class EmployeeDAO {
 		ResultSet rs = ps.executeQuery();
 		EmployeeDTO resultDTO = null;
 		if(rs.next()) {
-//			resultDTO = new EmployeeDTO();
-//			resultDTO.setEmployee_id(rs.getInt("EMPLOYEE_ID"));
-//			resultDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
-//			resultDTO.setLocation_id(rs.getInt("LOCATION_ID"));
-//			resultDTO.setCountry_id(rs.getInt("COUNTRY_ID"));
-//			resultDTO.setResion_id(rs.getInt("RESION_ID"));
+			resultDTO = new EmployeeDTO();
+			resultDTO.setEmployee_id(rs.getInt("EMPLOYEE_ID"));
+			resultDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
+			resultDTO.setLocation_id(rs.getInt("LOCATION_ID"));
+			resultDTO.setCountry_id(rs.getInt("COUNTRY_ID"));
+			resultDTO.setResion_id(rs.getInt("RESION_ID"));
 			employeeDTO.setEmployee_id(rs.getShort("FIRST_NAME"));
 		}else {
 			employeeDTO=null;
