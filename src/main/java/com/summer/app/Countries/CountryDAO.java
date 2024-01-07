@@ -61,7 +61,6 @@ public class CountryDAO {
 			return resultDTO;
 	}
 	
-	
 
 	public ArrayList<CountryDTO> getList() throws Exception {
 		
